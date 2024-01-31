@@ -36,3 +36,49 @@
     transform: rotate(360deg);
   }
 }
+
+.sidenav {
+  height: 100%;
+  width: 400px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.sidenav button {
+  padding: 6px 8px 6px 16px;
+  height: 100px;
+  width: 400px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+}
+
+.mapa {
+  height: 450px;
+  width: 860px;
+}
+
+.container {
+  display: flex;
+  overflow-x: auto;
+}
+
+.column {
+  flex: 0 0 300px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.form-column {
+  border-right: 1px solid #ccc;
+}
+
+.sidebar-column {
+  overflow-y: auto;
+}

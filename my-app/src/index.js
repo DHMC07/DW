@@ -1,4 +1,10 @@
 import ReactDOM from 'react-dom/client'
-import App from './App'
+import {getAll} from './services/connections.js'
+import Rout from "./pages/router.js"
 
-ReactDOM.createRoot(document.getElementById('root')).render(<App/>)
+getAll().then(response => {
+  localStorage.clear();
+  ReactDOM.createRoot(document.getElementById('root')).render(<Rout eventos={response} />)
+}).catch(error =>{
+  console.log("Erro do servidor");
+})

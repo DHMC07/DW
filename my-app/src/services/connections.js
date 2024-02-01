@@ -16,8 +16,8 @@ export const get_admin = () => {
   return request.then(response => response.data)
 }
 
-export const post_admin = (info) => {
-  const request = axios.post('http://localhost:3001/api/admin', info)
+export const post_evntos = (info) => {
+  const request = axios.post('http://localhost:3001/api/locations5', info)
   return request.then(response => response.data)
 }
 

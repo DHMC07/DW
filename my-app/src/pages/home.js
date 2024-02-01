@@ -1,8 +1,9 @@
 import { useState} from 'react'
-import {get_locations, get_user} from '../services/connections.js'
+import {get_locations} from '../services/connections.js'
 import React from 'react';
 import { Link } from 'react-router-dom';
 import "../App.css";
+import { compararSenha } from '../services/components.js';
 
 import {
   APIProvider,
@@ -18,24 +19,23 @@ const Home = (props) => {
   const [newAd, setAd] = useState(props.eventos.location)
   const [newinput, setinput] = useState("")
   const [newpassword, setpassword] = useState("")
-  const [info_user, new_info_user] = useState("")
+  const [error, setError] = useState('');
   const eventos = props.eventos
-  const code = new URLSearchParams(window.location.search).get('code');
 
   const ChangeAd = (event) => {
     event.preventDefault()
-    get_locations(newinput.replace(" ", "%"))
-    .then(response => {setAd(response)})
+      get_locations(newinput.replace(" ", "%"))
+      .then(response => {setAd(response)
+      }).chatch(erro => {
+        setError('Porfavor seja mais especifico na sua busca');
+      })
   }
-
-  const change_local = (event, location) => {
-    event.preventDefault()
-    setAd(location)
-  }
+  
 
   const login_admin = () => {
-    
-    
+
+    const comp = compararSenha(newpassword)
+    console.log(comp)
   }
 
   const handle_local = (event) => {
@@ -48,7 +48,7 @@ const Home = (props) => {
     setpassword(event.target.value)
   }
 
-  return (
+  return(
     <APIProvider async apiKey={"AIzaSyCbE28kdcyFgj2wchjwMtS9j-SGbj2F72s"}>
 
       <div className="sidenav">
@@ -65,8 +65,6 @@ const Home = (props) => {
       <div style={{ height: "50vh", width: "50%" }}>
 
         <h4>Event locations in your area</h4>
-        <h4>ID: {info_user.id}</h4>
-        <h4>User: {info_user.nome}</h4>
         <Link to="/admin">Usuario</Link>
 
         <form onSubmit={login_admin}>
@@ -80,6 +78,7 @@ const Home = (props) => {
           <input
             onChange={handle_local}
           />
+          {error && <p style={{ color: 'red' }}>{error}</p>}
           <button type="submit">Pesquisar</button>
         </form> 
 

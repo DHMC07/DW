@@ -1,8 +1,7 @@
 import express from "express"
 import { MongoClient, ObjectId } from "mongodb";
 import cors from "cors";
-import {Schema_evento, Schema_user, Schema_token} from "./esquema.js";
-import axios from "axios"
+import {Schema_evento, Schema_user} from "./esquema.js";
 
 const app = express();
 app.use(cors());
@@ -14,7 +13,6 @@ const client = new MongoClient(url);
 app.get("/", (req, res) => {
     res.redirect(`https://github.com/login/oauth/authorize?client_id=51a74380631b8073acc7`);
 })
-
 
 app.get('/api/locations', async(request, response) => { 
     try{

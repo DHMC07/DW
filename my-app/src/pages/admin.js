@@ -20,15 +20,15 @@ const Admin = (props) => {
                 {eventos.map(eventos =>
                     <li key={eventos._id}>
                         <form onSubmit={event => change_local(event, eventos.location)}>
-                            <button type="submit"> {eventos.content}</button>
+                            <button type="submit"> {eventos.nome}</button>
                         </form>
                     </li>
                 )
                 }
             </div>
-
-            <h1>Usuário</h1>
             <Link to="/">retornar a página inicial</Link>
+            <h4>ID:</h4>
+            <h4>User:</h4>
 
             <div className="column form-column">
                 <h2>Formulário</h2>
@@ -41,14 +41,6 @@ const Admin = (props) => {
                     <input type="submit" value="Enviar" />
                 </form>
             </div>
-
-            <div className="column sidebar-column">
-                <h2>Barra Lateral</h2>
-                {/* Conteúdo da barra lateral com scroll */}
-                <p>Conteúdo da barra lateral.</p>
-                {/* Adicione mais conteúdo conforme necessário */}
-            </div>
-
         </div>
     );
 }

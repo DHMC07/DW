@@ -7,7 +7,7 @@ export const getAll = () => {
 }
 
 export const get_locations = (local) => {
-  const request = axios.get("https://maps.googleapis.com/maps/api/geocode/json?address="+local+"&key=AIzaSyCbE28kdcyFgj2wchjwMtS9j-SGbj2F72s")
+  const request = axios.get("https://maps.googleapis.com/maps/api/geocode/json?address="+local+"&key=")
   return request.then(response => response.data.results[0].geometry.location)
 }
 

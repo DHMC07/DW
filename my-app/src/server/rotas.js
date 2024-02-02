@@ -7,7 +7,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 const PORT = 3001;
-const url = "mongodb+srv://ruivaldofoxrs:ruivaldo_2001@cluster0.yv3if9v.mongodb.net/?retryWrites=true&w=majority";
+const url = "mongodb+srv://ruivaldofoxrs:@cluster0.yv3if9v.mongodb.net/?retryWrites=true&w=majority";
 const client = new MongoClient(url);
 
 app.get("/", (req, res) => {

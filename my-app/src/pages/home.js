@@ -34,8 +34,7 @@ const Home = (props) => {
 
   const login_admin = () => {
 
-    const comp = compararSenha(newpassword)
-    console.log(comp)
+    
   }
 
   const handle_local = (event) => {
@@ -49,7 +48,7 @@ const Home = (props) => {
   }
 
   return(
-    <APIProvider async apiKey={"AIzaSyCbE28kdcyFgj2wchjwMtS9j-SGbj2F72s"}>
+    <APIProvider async apiKey={"}>
 
       <div className="sidenav">
         {eventos.map(eventos=>
